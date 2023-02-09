@@ -12,10 +12,9 @@ def get_20_most_cited_users(path_data: str):
     df = df[df["tweet"].str.contains("@") == True]
 
     arr_words = df["tweet"].str.split()
-
-    # Concatenate array of words
     words = []
 
+    # Concatenate array of words and filter with @
     for arr in arr_words:
         words.extend([word for word in arr if word.find("@") != -1])
 

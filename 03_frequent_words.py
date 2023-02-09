@@ -4,15 +4,17 @@ import matplotlib.pyplot as plt
 
 def get_100_most_frequent_words(path_data: str, path_stop: str) -> list[tuple[str, int]]:
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
-    
-    # Work with several lines
-    df = df.head(10000)
 
     # Mask to remove RT
-    df = df[df["tweet"].str.startswith("RT") == False]
+    df = df[df["tweet"].str.contains("RT ") == False]
 
     # Lowercase the words, split to get array
-    words = df["tweet"].str.lower().str.split().sum()
+    arr_words = df["tweet"].str.lower().str.split() 
+    words = []
+
+    # Concatenate arrays
+    for arr in arr_words:
+        words.extend([word for word in arr])
     
     # Read stop words
     stop_words = pd.read_csv(path_stop, header=None, names=["word"])
