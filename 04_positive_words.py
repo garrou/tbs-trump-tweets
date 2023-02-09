@@ -27,7 +27,7 @@ def get_50_most_positive_frequent_words(path_data: str, path_positive: str) -> l
     # Count the frequency of each word
     counter = collections.Counter(words)
 
-    # Sort the words by frequency and select the top 100 words
+    # Sort the words by frequency and select the top 50 words
     return counter.most_common(50)
 
 def generate_chart(data: list[tuple[str, int]]) -> None:
@@ -35,7 +35,7 @@ def generate_chart(data: list[tuple[str, int]]) -> None:
         words = [word for word, _ in data]
         frequencies = [frequency for _, frequency in data]
         
-        plt.barh(words, frequencies)
+        plt.barh(words, frequencies, color="green")
         plt.xlabel("Frequency")
         plt.ylabel("Words")
         plt.title("Top 50 positive words")

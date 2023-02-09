@@ -25,7 +25,7 @@ def get_50_most_contextual_frequent_words(path_data: str, path_stop: str, path_p
     negative_words = pd.read_csv(path_negative, header=None, names=["word"])
 
     # Convert to dictionary
-    global_words = { word: 0 for word in stop_words["word"]}
+    stop_words = { word: 0 for word in stop_words["word"]}
 
     # Convert to dictionary
     positive_words = { word: 0 for word in positive_words["word"]}
@@ -34,16 +34,18 @@ def get_50_most_contextual_frequent_words(path_data: str, path_stop: str, path_p
     negative_words = { word: 0 for word in negative_words["word"]}
 
     # Merge dictionaries
-    global_words.update(positive_words)
-    global_words.update(negative_words)
+    contextual_words = {}
+    contextual_words.update(stop_words)
+    contextual_words.update(positive_words)
+    contextual_words.update(negative_words)
 
     # Keep the contextual words from the list of words
-    words = [word for word in words if global_words.get(word) == None]
+    words = [word for word in words if contextual_words.get(word) == None]
 
     # Count the frequency of each word
     counter = collections.Counter(words)
 
-    # Sort the words by frequency and select the top 100 words
+    # Sort the words by frequency and select the top 50 words
     return counter.most_common(50)
 
 def generate_chart(data: list[tuple[str, int]]) -> None:
