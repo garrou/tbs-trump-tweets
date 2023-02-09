@@ -30,7 +30,7 @@ def generate_chart(data: pd.DataFrame) -> None:
 
 def main() -> None:
     dataframe = count_tweets_by_date("./data/trump_tweets.txt")
-    # print(dataframe)
+    print(dataframe)
     generate_chart(dataframe)
     
 main()
