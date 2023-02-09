@@ -8,10 +8,15 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
 
     # Mask to remove RT
     df = df[df["tweet"].str.startswith("RT") == False]
-    
-    # Mask to keep only the tweets of the covid
-    mask = (df["tweet"].str.contains("covid", case=False) | df["tweet"].str.contains("sars-cov", case=False))
-    df = df[mask]
+
+    # Convert to datetime the date
+    df["date"] = pd.to_datetime(df["date"], dayfirst=True)
+
+    # Filter on date
+    df.set_index('date', inplace=True)
+    start_date = '2020-09-01'
+    end_date = '2020-11-30'
+    df = df[(df.index >= start_date) & (df.index <= end_date)]
 
     # Lowercase the words, split to get array
     words = df["tweet"].str.lower().str.split().sum()
