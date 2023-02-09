@@ -4,5 +4,9 @@
 4. Write a python program that prints the 50 most frequent positive words (with their number of occurrences) used by Donald Trump in all his tweets.
 5. Write a python program that prints the 50 most frequent negative words (with their number of occurrences) used by Donald Trump in all his tweets.
 6. Write a python program that prints the 50 most frequent contextual words (with their number of occurrences) used by Donald Trump in all his tweets. A contextual word here is defined as a word which is not a positive, a negative or a stop word.
-7. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to covid-19 (only use tweets contaning the keyword covid or sars-cov)
-8. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to 2020 presidential elections (only use tweets from september 2020, to november 2020)
+7. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to covid-19 (only use tweets contaning the keyword covid or sars-cov).
+8. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to 2020 presidential elections (only use tweets from september 2020, to november 2020).
+
+
+
+12. Write a python program that prints the hour of the day that is the most used by Donald Trump for his tweets.
