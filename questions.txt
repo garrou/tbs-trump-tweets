@@ -1,0 +1,3 @@
+1. Write a python program that prints the different years in the data file.
+2. Write a python program that prints the total number of Donald Trump tweets for each year.
+3. Write a python program that prints the 100 most frequent words (with their number of occurrences) used by Donald Trump in all his tweets, in descending order. Stop words should not be included in these words.

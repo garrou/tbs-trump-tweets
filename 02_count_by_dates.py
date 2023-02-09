@@ -19,24 +19,18 @@ def count_tweets_by_date(path: str) -> pd.DataFrame:
     grouped = df.groupby(year_column[date_column]).size().reset_index(name="count")
     
     # Sort by date
-    grouped = grouped.sort_values(date_column)
-    
-    return grouped
+    return grouped.sort_values(date_column)
 
 def generate_chart(data: pd.DataFrame) -> None:
     try:
         data.plot.bar(x="date", y="count")
         plt.show()
     except:
-        print(f"Can't create chart")
+        print("Can't create chart")
 
 def main() -> None:
     dataframe = count_tweets_by_date("./data/trump_tweets.txt")
+    # print(dataframe)
     generate_chart(dataframe)
-
-    """
-    for data in dataframe.values:
-        print(data)
-    """
-
+    
 main()
