@@ -10,3 +10,4 @@
 
 
 12. Write a python program that prints the hour of the day that is the most used by Donald Trump for his tweets.
+13. Write a python program that prints the 20 most frequent cited users (with the number of citations) in Donald Trump tweets (a user citation starts with @), in descending order.

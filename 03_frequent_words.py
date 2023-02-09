@@ -9,8 +9,7 @@ def get_100_most_frequent_words(path_data: str, path_stop: str) -> list[tuple[st
     df = df.head(10000)
 
     # Mask to remove RT
-    mask = df["tweet"].str.startswith("RT") == False
-    df = df[mask]
+    df = df[df["tweet"].str.startswith("RT") == False]
 
     # Lowercase the words, split to get array
     words = df["tweet"].str.lower().str.split().sum()

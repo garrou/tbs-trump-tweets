@@ -17,7 +17,9 @@ def get_most_used_hour(path: str):
     # Group by date and count occurrences of each date
     grouped = df.groupby(column[date_column]).size().reset_index(name="count")
     
+    # Get the max occur
     max_occur = grouped["count"].max()
+
     return grouped[grouped["count"] == max_occur]["date"].values[0]
 
 def main():
