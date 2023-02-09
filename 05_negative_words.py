@@ -2,7 +2,7 @@ import collections
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def get_50_most_negative_frequent_words(path_data: str, path_positive: str):
+def get_50_most_negative_frequent_words(path_data: str, path_negative: str) -> list[tuple[str, int]]:
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Work with several lines
@@ -15,8 +15,8 @@ def get_50_most_negative_frequent_words(path_data: str, path_positive: str):
     # Lowercase the words, split to get array
     words = df["tweet"].str.lower().str.split().sum()
     
-    # Read stop words
-    negative_words = pd.read_csv(path_positive, header=None, names=["word"])
+    # Read negative words
+    negative_words = pd.read_csv(path_negative, header=None, names=["word"])
 
     # Convert to dictionary
     negative_words = { word: 0 for word in negative_words["word"]}
