@@ -1,6 +1,6 @@
 import collections
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def get_20_most_cited_hashtags(path_data: str):
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])

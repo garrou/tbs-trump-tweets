@@ -1,6 +1,6 @@
 import collections
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def get_50_most_positive_frequent_words(path_data: str, path_positive: str) -> list[tuple[str, int]]:
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
@@ -10,7 +10,6 @@ def get_50_most_positive_frequent_words(path_data: str, path_positive: str) -> l
 
     # Lowercase the words, split to get array
     arr_words = df["tweet"].str.lower().str.split()
-
     words = []
 
     # Concatenate arrays

@@ -2,7 +2,6 @@ import pandas as pd
 
 def get_most_used_hour(path: str):
     df = pd.read_csv(path, sep=";", header=None, names=["tweet", "date"])
-
     date_column = "date"
 
     # Select only one column

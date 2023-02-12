@@ -6,9 +6,9 @@
 6. Write a python program that prints the 50 most frequent contextual words (with their number of occurrences) used by Donald Trump in all his tweets. A contextual word here is defined as a word which is not a positive, a negative or a stop word.
 7. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to covid-19 (only use tweets contaning the keyword covid or sars-cov).
 8. Write a python program that prints the 10 most frequent contextual words (with their number of occurrences), the 10 most frequent positive words (with their number of occurrences), and the 10 most frequent negative words (with their number of occurrences), related to 2020 presidential elections (only use tweets from september 2020, to november 2020).
-
-
-
+9. Write a python program that computes and prints the global sentiment score in all the tweets of Donald Trump. Each positive word will be valued +1 in this score, and each negative word will be valued -1 in this score. This score could be positive or negative. Stops words and neutral words will not be used to compute this score.
+10. Same as question as question 9, but calculates and prints the global sentiment score for each year.
+11. Same as question as question 10, but calculates and prints the global sentiment score for each year, and consider only original tweets (not retweets) from Donald Trump.
 12. Write a python program that prints the hour of the day that is the most used by Donald Trump for his tweets.
 13. Write a python program that prints the 20 most frequent cited users (with the number of citations) in Donald Trump tweets (a user citation starts with @), in descending order.
 14. Write a python program that prints the 20 most frequent cited hastags (with the number of citations) in Donald Trump tweets (a cited hashtag starts with #), in descending order.

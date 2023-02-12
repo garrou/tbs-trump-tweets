@@ -1,9 +1,8 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def count_tweets_by_date(path: str) -> pd.DataFrame:
     df = pd.read_csv(path, sep=";", header=None, names=["tweet", "date"])
-
     date_column = "date"
 
     # Select only one column

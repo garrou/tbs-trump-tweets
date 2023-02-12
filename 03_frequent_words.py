@@ -1,12 +1,12 @@
 import collections
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def get_100_most_frequent_words(path_data: str, path_stop: str) -> list[tuple[str, int]]:
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    # df = df[df["tweet"].str.contains("RT ") == False]
 
     # Lowercase the words, split to get array
     arr_words = df["tweet"].str.lower().str.split() 

@@ -1,7 +1,7 @@
 import collections
-from typing import Tuple
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
+from typing import Tuple
 
 def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_negative: str) -> Tuple[list[tuple[str, int]], list[tuple[str, int]], list[tuple[str, int]]]:
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
@@ -15,7 +15,6 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
 
     # Lowercase the words, split to get array
     arr_words = df["tweet"].str.lower().str.split()
-
     words = []
 
     # Concatenate arrays
@@ -32,10 +31,10 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
     negative_words = pd.read_csv(path_negative, header=None, names=["word"])
 
     # Convert to dictionary
-    stop_words = { word: 0 for word in stop_words["word"]}
+    stop_words = { word: 0 for word in stop_words["word"] }
 
     # Convert to dictionary
-    positive_words = { word: 0 for word in positive_words["word"]}
+    positive_words = { word: 0 for word in positive_words["word"] }
 
     # Convert to dictionary
     negative_words = { word: 0 for word in negative_words["word"]}
