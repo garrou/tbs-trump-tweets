@@ -6,10 +6,10 @@ def get_100_most_frequent_words(path_data: str, path_stop: str) -> list[tuple[st
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Mask to remove RT
-    # df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
 
     # Lowercase the words, split to get array
-    arr_words = df["tweet"].str.lower().str.split() 
+    arr_words = df["tweet"].str.lower().str.split()
     words = []
 
     # Concatenate arrays
@@ -20,7 +20,7 @@ def get_100_most_frequent_words(path_data: str, path_stop: str) -> list[tuple[st
     stop_words = pd.read_csv(path_stop, header=None, names=["word"])
 
     # Convert to dictionary
-    stop_words = { word: 0 for word in stop_words["word"]}
+    stop_words = { word: True for word in stop_words["word"] }
 
     # Remove the stop words from the list of words
     words = [word for word in words if stop_words.get(word) == None]

@@ -6,7 +6,7 @@ def count_rt_and_not(path: str) -> Tuple[int, int]:
     total = len(df.values)
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
     rt = len(df.values)
 
     return total - rt, rt

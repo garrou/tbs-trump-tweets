@@ -7,7 +7,7 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
     
     # Mask to keep only the tweets of the covid
     mask = (df["tweet"].str.contains("covid", case=False) | df["tweet"].str.contains("sars-cov", case=False))
@@ -31,13 +31,13 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
     negative_words = pd.read_csv(path_negative, header=None, names=["word"])
 
     # Convert to dictionary
-    stop_words = { word: 0 for word in stop_words["word"] }
+    stop_words = { word: True for word in stop_words["word"] }
 
     # Convert to dictionary
-    positive_words = { word: 0 for word in positive_words["word"] }
+    positive_words = { word: True for word in positive_words["word"] }
 
     # Convert to dictionary
-    negative_words = { word: 0 for word in negative_words["word"]}
+    negative_words = { word: True for word in negative_words["word"]}
 
     # Create contextual words dictionary
     contextual_words = {}
@@ -49,8 +49,8 @@ def get_covid_frequent(path_data: str, path_stop: str, path_positive: str, path_
     contextual_words = [word for word in words if contextual_words.get(word) == None]
 
     # Keep only positive and negative words
-    positive_words = [word for word in words if positive_words.get(word) == 0]
-    negative_words = [word for word in words if negative_words.get(word) == 0]
+    positive_words = [word for word in words if positive_words.get(word) == True]
+    negative_words = [word for word in words if negative_words.get(word) == True]
 
     # Count the frequency of each word
     contextual_counter = collections.Counter(contextual_words)

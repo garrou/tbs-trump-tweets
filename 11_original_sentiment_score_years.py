@@ -9,14 +9,14 @@ def count_sentiment_score_by_years(path_data: str, path_stop: str, path_positive
     words = {}
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
 
     for v in df.values:
         words[v[1]] = v[0].lower().split()
 
     # Convert to dictionary
-    positive_words = { word: 0 for word in df_positive["word"] }
-    negative_words = { word: 0 for word in df_negative["word"] }
+    positive_words = { word: True for word in df_positive["word"] }
+    negative_words = { word: True for word in df_negative["word"] }
     stop_words = { word: 0 for word in df_stop["word"] }
 
     # Remove stop word in dictionary
@@ -25,7 +25,7 @@ def count_sentiment_score_by_years(path_data: str, path_stop: str, path_positive
 
     # Keep only positive and negative words in dictionary
     for key in words:
-        words[key] = [word for word in words[key] if positive_words.get(word) == 0 or negative_words.get(word) == 0]
+        words[key] = [word for word in words[key] if positive_words.get(word) == True or negative_words.get(word) == True]
     
     return get_scores_by_year(words, positive_words, negative_words)
 
@@ -39,9 +39,9 @@ def get_scores_by_year(words: dict[str, list[str]], positive_words: dict[str, in
             scores[year] = 0
 
         for w in words[key]:
-            if positive_words.get(w) == 0:
+            if positive_words.get(w) == True:
                 scores[year] += 1
-            elif negative_words.get(w) == 0:
+            elif negative_words.get(w) == True:
                 scores[year] -= 1
 
     keys = list(scores.keys())

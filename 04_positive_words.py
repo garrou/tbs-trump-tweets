@@ -6,7 +6,7 @@ def get_50_most_positive_frequent_words(path_data: str, path_positive: str) -> l
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
 
     # Lowercase the words, split to get array
     arr_words = df["tweet"].str.lower().str.split()
@@ -20,10 +20,10 @@ def get_50_most_positive_frequent_words(path_data: str, path_positive: str) -> l
     positive_words = pd.read_csv(path_positive, header=None, names=["word"])
 
     # Convert to dictionary
-    positive_words = { word: 0 for word in positive_words["word"]}
+    positive_words = { word: True for word in positive_words["word"] }
 
     # Keep the positive words from the list of words
-    words = [word for word in words if positive_words.get(word) == 0]
+    words = [word for word in words if positive_words.get(word) == True]
 
     # Count the frequency of each word
     counter = collections.Counter(words)

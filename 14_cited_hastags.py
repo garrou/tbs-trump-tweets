@@ -6,7 +6,7 @@ def get_20_most_cited_hashtags(path_data: str):
     df = pd.read_csv(path_data, sep=";", header=None, names=["tweet", "date"])
 
     # Mask to remove RT
-    df = df[df["tweet"].str.contains("RT ") == False]
+    df = df[df["tweet"].str.contains("RT") == False]
 
     # Mask to get only tweets with #
     df = df[df["tweet"].str.contains("#") == True]
