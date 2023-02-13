@@ -14,12 +14,9 @@ def get_20_most_cited_hashtags(path_data: str):
     arr_words = df["tweet"].str.split()
     words = []
 
-    # Concatenate array of words and filter with #
+    # Concatenate array of words and filter with # and remove '"'
     for arr in arr_words:
-        words.extend([word for word in arr if word.find("#") != -1])
-
-    # Remove '"'
-    words = [word.replace('"', "") for word in words]
+        words.extend([word.replace('"', "") for word in arr if word.find("#") != -1])
 
     # Count the frequency of each word
     counter = collections.Counter(words)

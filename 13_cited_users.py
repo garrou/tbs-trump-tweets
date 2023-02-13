@@ -16,10 +16,7 @@ def get_20_most_cited_users(path_data: str):
 
     # Concatenate array of words and filter with @
     for arr in arr_words:
-        words.extend([word for word in arr if word.find("@") != -1])
-
-    # Remove '"'
-    words = [word.replace('"', "") for word in words]
+        words.extend([word.replace('"', "") for word in arr if word.find("@") != -1])
 
     # Count the frequency of each word
     counter = collections.Counter(words)
